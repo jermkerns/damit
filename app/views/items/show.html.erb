@@ -1,19 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col">
+        <%= link_to "Edit this item", edit_item_path(@item) %> |
+        <%= link_to "Back to items", items_path %>
+
+        <%= button_to "Delete Item", @item, method: :delete, class: "btn btn-danger" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h2>Metadata</h2>
+      <hr>
+      <%= render @item %>
+    </div>
+    <div class="col">
+      <% if @item.fileobj.representable? %>
+        <% if @item.fileobj.image? %>
+          <%= image_tag @item.fileobj, class: "img-fluid" %>
+        <% end %>
+      <% end %>
+      <%= @item.fileobj.filename %>
+    </div>
   </div>
 </div>
-<% if @item.fileobj.representable? %>
-  <% if @item.fileobj.image? %>
-    <%= image_tag @item.fileobj.representation(resize_to_limit: [100, 100]) %>
-  <% end %>
-<% end %>
-<%= @item.fileobj.filename %>
-<%= render @item %>
 
-<div>
-  <%= link_to "Edit this item", edit_item_path(@item) %> |
-  <%= link_to "Back to items", items_path %>
-
-  <%= button_to "Delete Item", @item, method: :delete, class: "btn btn-danger" %>
-</div>

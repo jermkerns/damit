@@ -1,0 +1,6 @@
+.form-holder {
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 60%;
+}

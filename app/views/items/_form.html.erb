@@ -12,47 +12,48 @@
   <% end %>
 
   <div>
-    <%= form.label :fileobj, style: "display: block" %>
+    <%= form.label :fileobj, "Upload a file", style: "display: block", class: "form-label" %>
     <%= form.file_field :fileobj %>
   </div>
+  <hr>
   <div>
-    <%= form.label :filename, style: "display: block" %>
-    <%= form.text_field :filename %>
+    <%= form.label :filename, "File Name", style: "display: block", class: "form-label" %>
+    <%= form.text_field :filename, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :filetype, style: "display: block" %>
-    <%= form.text_field :filetype %>
+    <%= form.label :filetype, "File Type", style: "display: block", class: "form-label" %>
+    <%= form.text_field :filetype, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :fileformat, style: "display: block" %>
-    <%= form.text_field :fileformat %>
+    <%= form.label :fileformat, "File Format", style: "display: block", class: "form-label" %>
+    <%= form.text_field :fileformat, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :filesize, style: "display: block" %>
-    <%= form.number_field :filesize %>
+    <%= form.label :filesize, "File Size", style: "display: block", class: "form-label" %>
+    <%= form.number_field :filesize, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :dimensions, style: "display: block" %>
-    <%= form.text_field :dimensions %>
+    <%= form.label :dimensions, style: "display: block", class: "form-label" %>
+    <%= form.text_field :dimensions, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :content_description, style: "display: block" %>
-    <%= form.text_area :content_description %>
+    <%= form.label :content_description, style: "display: block", class: "form-label" %>
+    <%= form.text_area :content_description, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :content_keywords, style: "display: block" %>
-    <%= form.text_area :content_keywords %>
+    <%= form.label :content_keywords, style: "display: block", class: "form-label" %>
+    <%= form.text_area :content_keywords, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :file_date_created, style: "display: block" %>
-    <%= form.datetime_field :file_date_created %>
+    <%= form.label :file_date_created, style: "display: block", class: "form-label" %>
+    <%= form.datetime_field :file_date_created, class: "form-control" %>
   </div>
 
   <div>
