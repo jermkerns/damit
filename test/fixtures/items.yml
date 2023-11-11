@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  filename: MyString
+  filetype: MyString
+  fileformat: MyString
+  filesize: 1
+  dimensions: MyString
+  content_description: MyText
+  content_keywords: MyText
+  file_date_created: 2023-11-10 14:12:59
+
+two:
+  filename: MyString
+  filetype: MyString
+  fileformat: MyString
+  filesize: 1
+  dimensions: MyString
+  content_description: MyText
+  content_keywords: MyText
+  file_date_created: 2023-11-10 14:12:59

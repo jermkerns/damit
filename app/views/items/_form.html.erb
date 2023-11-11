@@ -1,0 +1,61 @@
+<%= form_with(model: item) do |form| %>
+  <% if item.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :fileobj, style: "display: block" %>
+    <%= form.file_field :fileobj %>
+  </div>
+  <div>
+    <%= form.label :filename, style: "display: block" %>
+    <%= form.text_field :filename %>
+  </div>
+
+  <div>
+    <%= form.label :filetype, style: "display: block" %>
+    <%= form.text_field :filetype %>
+  </div>
+
+  <div>
+    <%= form.label :fileformat, style: "display: block" %>
+    <%= form.text_field :fileformat %>
+  </div>
+
+  <div>
+    <%= form.label :filesize, style: "display: block" %>
+    <%= form.number_field :filesize %>
+  </div>
+
+  <div>
+    <%= form.label :dimensions, style: "display: block" %>
+    <%= form.text_field :dimensions %>
+  </div>
+
+  <div>
+    <%= form.label :content_description, style: "display: block" %>
+    <%= form.text_area :content_description %>
+  </div>
+
+  <div>
+    <%= form.label :content_keywords, style: "display: block" %>
+    <%= form.text_area :content_keywords %>
+  </div>
+
+  <div>
+    <%= form.label :file_date_created, style: "display: block" %>
+    <%= form.datetime_field :file_date_created %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
