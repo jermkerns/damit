@@ -1,34 +1,5 @@
 <div id="items" class="container">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <% @items.each do |item| %>
-    <div class="col">
-      <div class="card h-100">
-        <!--<img src="..." class="card-img-top" alt="...">-->
-        <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="40%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>-->
-        <div class="card-header">
-          <h5 class="card-title"><%= item.filename %></h5>
-        </div>
-        <div class="card-img-top" width="100%" height="100%">
-          <% if item.fileobj != nil && item.fileobj.representable? %>
-            <% if item.fileobj.image? %>
-              <%= image_tag item.fileobj.representation(resize_to_limit: [200, 200]), class: "img-thumbnail" %>
-            <% end %>
-          <% else %>
-            <i class="fa-regular fa-file-image fa-2xl"></i>
-          <% end %>
-        </div>
-        <div class="card-body">
-          
-          <p class="card-text"><%= item.content_description %></p>
-          
-        </div>
-        <div class="card-footer">
-          <%= link_to "Show this item", item, class: "btn btn-primary" %>
-        </div>
-      </div>
-      </div>
-    <% end %>
-  </div>
+  <%= render "gallery", items: @items %>
 </div>
 
 

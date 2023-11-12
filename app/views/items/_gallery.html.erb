@@ -1,0 +1,36 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <% items.each do |item| %>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-header">
+          <h5 class="card-title"><%= item.filename %></h5>
+        </div>
+        <div class="card-img-top" width="100%" height="100%">
+          <% if item.fileobj.image? %>
+            <%= image_tag item.fileobj.representation(resize_to_limit: [200, 200]), class: "img-thumbnail" %>
+          <% elsif item.fileobj.text? %>
+            <%= image_tag("document-svgrepo-com.svg", height: "200") %>
+          <% elsif item.fileobj.audio? %>
+            <%= image_tag("multimedia-volume-control-svgrepo-com.svg", height: "200") %>
+          <% elsif item.fileobj.video? %>
+            <%= image_tag("gnome-mplayer-svgrepo-com.svg", height: "200") %>
+          <% else %>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: No preview available" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>No Preview Available</title>
+              <rect width="100%" height="100%" fill="#868e96"></rect>
+              <text x="30%" y="50%" fill="#dee2e6" dy=".3em">No Preview Available</text>
+            </svg>
+          <% end %>
+        </div>
+        <div class="card-body">
+          
+          <p class="card-text"><%= item.content_description %></p>
+          
+        </div>
+        <div class="card-footer">
+          <%= link_to "Show this item", item, class: "btn btn-primary" %>
+        </div>
+      </div>
+      </div>
+    <% end %>
+  </div>

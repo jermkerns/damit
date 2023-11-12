@@ -17,7 +17,12 @@
       <% if @item.fileobj.representable? %>
         <% if @item.fileobj.image? %>
           <%= image_tag @item.fileobj, class: "img-fluid" %>
+        <% elsif @item.fileobj.video? %>
+          <%= image_tag @item.fileobj.preview(resize_to_limit: [100, 100]) %>
         <% end %>
+      <% end %>
+      <% if @item.fileobj.previewable? %>
+        <%= image_tag @item.fileobj.preview(resize_to_limit: [100, 100]) %>
       <% end %>
       <%= @item.fileobj.filename %>
     </div>

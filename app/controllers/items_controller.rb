@@ -9,6 +9,13 @@ class ItemsController < ApplicationController
   # GET /items/1 or /items/1.json
   def show
     @filedata = @item.fileobj.image?
+    @preview = @item.fileobj
+    if(@item.fileobj.previewable?)
+      @item.fileobj.preview(resize_to_limit: [100, 100]).processed.url
+      @preview = @item.fileobj.preview(resize_to_limit: [100, 100]).image
+    end
+    #if(@item.fileobj.video?)
+    #  @video = 
   end
 
   # GET /items/new
@@ -76,6 +83,16 @@ class ItemsController < ApplicationController
       format.html { redirect_to items_url, notice: "Item was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    @results = Item.where("filename LIKE ?", "%" + Item.sanitize_sql_like(params[:filename]) + "%")
+    #Rails.logger.debug @results
+    qtyword = "items"
+    if(@results.length == 1)
+      qtyword = "item"
+    end
+    @summary = @results.length.to_s + " #{qtyword} found for '#{params[:filename]}'"
   end
 
   private

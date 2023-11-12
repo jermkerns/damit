@@ -1,0 +1,7 @@
+<h1>Search Results</h1>
+<% if (@results.length > 0) %>
+  <p><%= @summary %>
+  <%= render "gallery", items: @results %>
+<% else %>
+  <p>No items found</p>
+<% end %>
