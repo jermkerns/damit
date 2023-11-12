@@ -8,7 +8,17 @@
   <div class="form-title">
     <h1>Add a new item</h1>
   </div>
-  <%= render "form", item: @item %>
+  <%= form_with(model: @item) do |form| %>
+    <div>
+      <%= form.label :fileobj, "Upload a file", style: "display: block", class: "form-label" %>
+      <%= form.file_field :fileobj %>
+    </div>
+  
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+
   
 </div>
 

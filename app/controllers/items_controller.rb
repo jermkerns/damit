@@ -25,9 +25,28 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     #@item.fileobj.attach(params[:fileobj])
 
+    @item.filename = @item.fileobj.filename
+
+    if(@item.fileobj.audio?)
+      @item.filetype = "audio"
+    elsif(@item.fileobj.image?)
+      @item.filetype = "image"
+      #@item.dimensions = @item.fileobj.metadata["width"] + " x " + @item.fileobj.metadata["height"]
+    elsif(@item.fileobj.video?)
+      @item.filetype = "video"
+      #@item.dimensions = @item.fileobj.metadata["width"] + " x " + @item.fileobj.metadata["height"]
+    elsif(@item.fileobj.text?)
+      @item.filetype = "document"
+    end
+ 
+    #if(@item.fileobj.analyzed?)
+      
+    #end
+
     respond_to do |format|
       if @item.save
-        format.html { redirect_to item_url(@item), notice: "Item was successfully created." }
+        #format.html { redirect_to item_url(@item), notice: "Item was successfully created." }
+        format.html { redirect_to edit_item_path(@item), notice: "Item was successfully created." }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new, status: :unprocessable_entity }

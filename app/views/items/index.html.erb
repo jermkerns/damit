@@ -1,6 +1,3 @@
-<p><%= notice %></p>
-<%= link_to "New item", new_item_path, class: "btn btn-primary" %>
-
 <div id="items" class="container">
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @items.each do |item| %>
@@ -16,6 +13,8 @@
             <% if item.fileobj.image? %>
               <%= image_tag item.fileobj.representation(resize_to_limit: [200, 200]), class: "img-thumbnail" %>
             <% end %>
+          <% else %>
+            <i class="fa-regular fa-file-image fa-2xl"></i>
           <% end %>
         </div>
         <div class="card-body">

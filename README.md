@@ -1,4 +1,4 @@
-# README
+# DAMit
 
 DAMit is a Digital Asset Management system written in Ruby on Rails. 
 
